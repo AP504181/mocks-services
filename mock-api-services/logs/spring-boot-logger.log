@@ -1,0 +1,193 @@
+2025-03-13 16:59:57,973 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MsMocksServiceApplication using Java 17.0.9 on LAPGPCOR267YC with PID 18204 (C:\GitHub504181\Ms-Mocks-Api\mock-api-services\target\classes started by AP504181 in C:\GitHub504181\Ms-Mocks-Api\mock-api-services)
+2025-03-13 16:59:57,979 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2025-03-13 16:59:58,043 INFO org.springframework.boot.logging.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\AP504181\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.8.0.0\ojdbc8-19.8.0.0.jar referenced one or more files that do not exist: file:/C:/Users/AP504181/.m2/repository/com/oracle/database/jdbc/ojdbc8/19.8.0.0/oraclepki.jar
+2025-03-13 16:59:58,044 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13 16:59:58,045 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13 16:59:59,604 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-03-13 16:59:59,617 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
+2025-03-13 16:59:59,897 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$5b4df6f0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-03-13 16:59:59,964 INFO org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping [restartedMain] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-03-13 17:00:00,572 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8010 (http)
+2025-03-13 17:00:00,584 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:00:00,585 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2025-03-13 17:00:00,586 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2025-03-13 17:00:00,745 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2025-03-13 17:00:00,746 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2700 ms
+2025-03-13 17:00:00,911 ERROR org.springframework.boot.web.embedded.tomcat.TomcatStarter [restartedMain] Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration': Unsatisfied dependency expressed through field 'skipPattern'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'skipPattern' defined in class path resource [io/opentracing/contrib/spring/web/starter/SkipPatternAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.regex.Pattern]: Factory method 'skipPattern' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthContributorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2025-03-13 17:00:00,945 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2025-03-13 17:00:01,067 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2025-03-13 17:00:01,083 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-03-13 17:00:01,104 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2025-03-13 17:00:47,658 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MsMocksServiceApplication using Java 17.0.9 on LAPGPCOR267YC with PID 31404 (C:\GitHub504181\Ms-Mocks-Api\mock-api-services\target\classes started by AP504181 in C:\GitHub504181\Ms-Mocks-Api\mock-api-services)
+2025-03-13 17:00:47,663 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2025-03-13 17:00:47,813 INFO org.springframework.boot.logging.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\AP504181\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.8.0.0\ojdbc8-19.8.0.0.jar referenced one or more files that do not exist: file:/C:/Users/AP504181/.m2/repository/com/oracle/database/jdbc/ojdbc8/19.8.0.0/oraclepki.jar
+2025-03-13 17:00:47,814 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13 17:00:47,815 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13 17:00:49,670 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-03-13 17:00:49,695 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
+2025-03-13 17:00:50,056 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$aad00ae5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-03-13 17:00:50,115 INFO org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping [restartedMain] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-03-13 17:00:50,704 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8010 (http)
+2025-03-13 17:00:50,716 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:00:50,717 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2025-03-13 17:00:50,718 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2025-03-13 17:00:50,934 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2025-03-13 17:00:50,935 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3118 ms
+2025-03-13 17:00:51,152 ERROR org.springframework.boot.web.embedded.tomcat.TomcatStarter [restartedMain] Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration': Unsatisfied dependency expressed through field 'skipPattern'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'skipPattern' defined in class path resource [io/opentracing/contrib/spring/web/starter/SkipPatternAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.regex.Pattern]: Factory method 'skipPattern' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthContributorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2025-03-13 17:00:51,191 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2025-03-13 17:00:51,340 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2025-03-13 17:00:51,372 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-03-13 17:00:51,416 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2025-03-13 17:01:56,013 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MsMocksServiceApplication using Java 17.0.9 on LAPGPCOR267YC with PID 19688 (C:\GitHub504181\Ms-Mocks-Api\mock-api-services\target\classes started by AP504181 in C:\GitHub504181\Ms-Mocks-Api\mock-api-services)
+2025-03-13 17:01:56,020 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2025-03-13 17:01:56,085 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13 17:01:56,085 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13 17:01:57,636 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$d84a0fe9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-03-13 17:01:57,672 INFO org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping [restartedMain] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-03-13 17:01:58,129 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8010 (http)
+2025-03-13 17:01:58,142 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:01:58,143 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2025-03-13 17:01:58,144 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2025-03-13 17:01:58,343 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2025-03-13 17:01:58,376 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2290 ms
+2025-03-13 17:01:58,720 INFO io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration [restartedMain] Creating FilterRegistrationBean bean with TracingFilter mapped to [], skip pattern is "/api-docs.*|/swagger.*|.*\.png|.*\.css|.*\.js|.*\.html|/favicon.ico|/hystrix.stream|/actuator/(health|health/.*|info|info/.*)"
+2025-03-13 17:01:59,208 INFO io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration [restartedMain] Creating WebMvcConfigurer bean with class io.opentracing.contrib.spring.web.interceptor.TracingHandlerInterceptor
+2025-03-13 17:01:59,306 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-03-13 17:01:59,397 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2025-03-13 17:01:59,505 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2025-03-13 17:01:59,529 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2025-03-13 17:01:59,808 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:01:59,870 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8010 (http) with context path ''
+2025-03-13 17:01:59,872 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2025-03-13 17:01:59,899 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2025-03-13 17:01:59,930 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2025-03-13 17:02:00,047 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MsMocksServiceApplication in 4.567 seconds (JVM running for 5.488)
+2025-03-13 17:02:25,260 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8010-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-13 17:02:25,260 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8010-exec-2] Initializing Servlet 'dispatcherServlet'
+2025-03-13 17:02:25,262 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8010-exec-2] Completed initialization in 1 ms
+2025-03-13 17:02:25,312 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8010-exec-2] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> com.profuturo.mock.services.controladores.BitacoraProcesoControlador.getMockResponse(java.util.Map<java.lang.String, java.lang.Object>)]
+2025-03-13 17:02:25,316 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-2] Span reported: 99ffdcdc32f4af7f:99ffdcdc32f4af7f:0:1 - getMockResponse
+2025-03-13 17:02:25,395 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-2] Span reported: 99ffdcdc32f4af7f:cf915f1e550b5ceb:99ffdcdc32f4af7f:1 - error
+2025-03-13 17:04:27,101 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2025-03-13 17:04:32,575 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MsMocksServiceApplication using Java 17.0.9 on LAPGPCOR267YC with PID 17876 (C:\GitHub504181\Ms-Mocks-Api\mock-api-services\target\classes started by AP504181 in C:\GitHub504181\Ms-Mocks-Api\mock-api-services)
+2025-03-13 17:04:32,580 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2025-03-13 17:04:32,646 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13 17:04:32,647 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13 17:04:34,167 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$5ea5ac07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-03-13 17:04:34,208 INFO org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping [restartedMain] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-03-13 17:04:34,783 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8010 (http)
+2025-03-13 17:04:34,798 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:04:34,800 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2025-03-13 17:04:34,800 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2025-03-13 17:04:35,016 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2025-03-13 17:04:35,016 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2367 ms
+2025-03-13 17:04:35,293 INFO io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration [restartedMain] Creating FilterRegistrationBean bean with TracingFilter mapped to [], skip pattern is "/api-docs.*|/swagger.*|.*\.png|.*\.css|.*\.js|.*\.html|/favicon.ico|/hystrix.stream|/actuator/(health|health/.*|info|info/.*)"
+2025-03-13 17:04:35,823 INFO io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration [restartedMain] Creating WebMvcConfigurer bean with class io.opentracing.contrib.spring.web.interceptor.TracingHandlerInterceptor
+2025-03-13 17:04:35,936 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-03-13 17:04:36,065 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2025-03-13 17:04:36,218 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2025-03-13 17:04:36,259 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2025-03-13 17:04:36,546 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:04:36,610 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8010 (http) with context path ''
+2025-03-13 17:04:36,612 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2025-03-13 17:04:36,645 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2025-03-13 17:04:36,676 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2025-03-13 17:04:36,708 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MsMocksServiceApplication in 4.721 seconds (JVM running for 5.567)
+2025-03-13 17:04:41,491 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8010-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-13 17:04:41,491 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8010-exec-1] Initializing Servlet 'dispatcherServlet'
+2025-03-13 17:04:41,493 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8010-exec-1] Completed initialization in 1 ms
+2025-03-13 17:04:41,537 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-1] Span reported: e8d54d91903b213e:e8d54d91903b213e:0:1 - POST
+2025-03-13 17:04:41,652 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-1] Span reported: e8d54d91903b213e:15a780c369657de5:e8d54d91903b213e:1 - error
+2025-03-13 17:05:29,315 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-4] Span reported: 9846745012f7957e:9846745012f7957e:0:1 - GET
+2025-03-13 17:05:29,320 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-4] Span reported: 9846745012f7957e:e08d65103a1dd107:9846745012f7957e:1 - error
+2025-03-13 17:05:29,351 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-5] Span reported: 8a029829bf858eb:8a029829bf858eb:0:1 - GET
+2025-03-13 17:05:29,358 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-8] Span reported: 726879e78889bb81:726879e78889bb81:0:1 - GET
+2025-03-13 17:05:29,363 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-7] Span reported: b635225a47521b05:b635225a47521b05:0:1 - GET
+2025-03-13 17:05:29,367 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-7] Span reported: b635225a47521b05:a47614238c59191d:b635225a47521b05:1 - error
+2025-03-13 17:05:29,396 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-3] Span reported: 89546da5e8add184:89546da5e8add184:0:1 - GET
+2025-03-13 17:05:29,464 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-10] Span reported: 823d232e6283da97:823d232e6283da97:0:1 - GET
+2025-03-13 17:05:29,464 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-6] Span reported: 282ca80c35022714:282ca80c35022714:0:1 - GET
+2025-03-13 17:06:02,594 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-1] Span reported: 1390fa633acb8559:1390fa633acb8559:0:1 - POST
+2025-03-13 17:06:02,601 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-1] Span reported: 1390fa633acb8559:844787fbd336fb8b:1390fa633acb8559:1 - error
+2025-03-13 17:06:38,463 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2025-03-13 17:06:44,065 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MsMocksServiceApplication using Java 17.0.9 on LAPGPCOR267YC with PID 14568 (C:\GitHub504181\Ms-Mocks-Api\mock-api-services\target\classes started by AP504181 in C:\GitHub504181\Ms-Mocks-Api\mock-api-services)
+2025-03-13 17:06:44,070 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2025-03-13 17:06:44,139 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13 17:06:44,140 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13 17:06:45,678 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$d84a0fe9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-03-13 17:06:45,725 INFO org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping [restartedMain] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-03-13 17:06:46,215 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8010 (http)
+2025-03-13 17:06:46,229 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:06:46,231 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2025-03-13 17:06:46,231 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2025-03-13 17:06:46,423 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2025-03-13 17:06:46,423 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2282 ms
+2025-03-13 17:06:46,687 INFO io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration [restartedMain] Creating FilterRegistrationBean bean with TracingFilter mapped to [], skip pattern is "/api-docs.*|/swagger.*|.*\.png|.*\.css|.*\.js|.*\.html|/favicon.ico|/hystrix.stream|/actuator/(health|health/.*|info|info/.*)"
+2025-03-13 17:06:47,200 INFO io.opentracing.contrib.spring.web.starter.ServerTracingAutoConfiguration [restartedMain] Creating WebMvcConfigurer bean with class io.opentracing.contrib.spring.web.interceptor.TracingHandlerInterceptor
+2025-03-13 17:06:47,311 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-03-13 17:06:47,402 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2025-03-13 17:06:47,517 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2025-03-13 17:06:47,540 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2025-03-13 17:06:47,814 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8010"]
+2025-03-13 17:06:47,876 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8010 (http) with context path ''
+2025-03-13 17:06:47,877 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2025-03-13 17:06:47,904 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2025-03-13 17:06:47,935 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2025-03-13 17:06:48,039 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MsMocksServiceApplication in 4.567 seconds (JVM running for 5.499)
+2025-03-13 17:06:52,140 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8010-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-13 17:06:52,141 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8010-exec-1] Initializing Servlet 'dispatcherServlet'
+2025-03-13 17:06:52,143 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8010-exec-1] Completed initialization in 2 ms
+2025-03-13 17:06:52,636 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-2] Span reported: 1ee95da92cc602bd:1ee95da92cc602bd:0:1 - GET
+2025-03-13 17:06:52,639 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-3] Span reported: 8a04b516181d3cc1:8a04b516181d3cc1:0:1 - GET
+2025-03-13 17:06:52,639 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-6] Span reported: f290d11ea51711a3:f290d11ea51711a3:0:1 - GET
+2025-03-13 17:06:52,678 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-2] Span reported: 1ee95da92cc602bd:48df552bdf6ee947:1ee95da92cc602bd:1 - error
+2025-03-13 17:06:52,691 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-4] Span reported: b7562cd672eb474e:b7562cd672eb474e:0:1 - GET
+2025-03-13 17:06:52,697 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-4] Span reported: b7562cd672eb474e:af3c7d5d47546e3:b7562cd672eb474e:1 - error
+2025-03-13 17:06:52,777 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-1] Span reported: f57fba2940b4f2ab:f57fba2940b4f2ab:0:1 - GET
+2025-03-13 17:06:52,825 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-9] Span reported: 3d3b45ab378be09b:3d3b45ab378be09b:0:1 - GET
+2025-03-13 17:06:52,825 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-5] Span reported: a541615fbdbf3a96:a541615fbdbf3a96:0:1 - GET
+2025-03-13 17:06:54,008 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-8] Span reported: 2f9a9681d14470c4:2f9a9681d14470c4:0:1 - GET
+2025-03-13 17:06:55,027 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-7] Span reported: c004b030bfb6e4b8:c004b030bfb6e4b8:0:1 - GET
+2025-03-13 17:06:58,855 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-10] Span reported: b05a842f355ab113:b05a842f355ab113:0:1 - getMockResponse
+2025-03-13 17:06:58,901 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-3] Span reported: eade181a7487a2b6:eade181a7487a2b6:0:1 - GET
+2025-03-13 17:07:02,809 INFO io.jaegertracing.internal.reporters.LoggingReporter [http-nio-8010-exec-2] Span reported: 98047442e9168cd:98047442e9168cd:0:1 - getMockResponse
