@@ -1,8 +1,6 @@
 package com.profuturo.mock.services.controladores;
 
-import com.profuturo.mock.services.dto.entrada.requestCambiarContrasena;
-import com.profuturo.mock.services.dto.entrada.requestRecuperarContrasena;
-import com.profuturo.mock.services.dto.entrada.requestValidarAutenticacionPension;
+import com.profuturo.mock.services.dto.entrada.*;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -63,10 +61,32 @@ public class LoginPensionesControlador {
 	}
 
 	@PostMapping("/actualizarPassword")
-	public ResponseEntity<?> actualizarPassword (@RequestBody requestRecuperarContrasena request) {
+	public ResponseEntity<?> actualizarPassword (@RequestBody rqtActualizarPassword request) {
 		Map<String, Object> response = new HashMap<>();
 		try {
-			Object  responseautenticar = serviceloginpensiones.recuperarContrasena(request);
+			Object  responseautenticar = serviceloginpensiones.actualizarPassword(request);
+			return ResponseEntity.ok(responseautenticar);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
+		}
+	}
+
+	@PostMapping("/autenticaUsuarioPensiones")
+	public ResponseEntity<?> autenticaUsuarioPensiones (@RequestBody rqtautenticaUsuarioPensiones request) {
+		Map<String, Object> response = new HashMap<>();
+		try {
+			Object  responseautenticar = serviceloginpensiones.autenticaUsuarioPensiones(request);
+			return ResponseEntity.ok(responseautenticar);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
+		}
+	}
+
+	@PostMapping("/enviar-folio-sms-univ")
+	public ResponseEntity<?> enviarfoliosmsuniv(@RequestBody rqtenviarFolioSmsUniv request) {
+		Map<String, Object> response = new HashMap<>();
+		try {
+			Object  responseautenticar = serviceloginpensiones.enviarfoliosmsuniv(request);
 			return ResponseEntity.ok(responseautenticar);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());

@@ -1,19 +1,17 @@
 package com.profuturo.mock.services.service.impl;
 
 import com.profuturo.mock.services.controladores.LoginPensionesControlador;
-import com.profuturo.mock.services.dto.entrada.requestCambiarContrasena;
-import com.profuturo.mock.services.dto.entrada.requestRecuperarContrasena;
-import com.profuturo.mock.services.dto.entrada.requestValidarAutenticacionPension;
+import com.profuturo.mock.services.dto.entrada.*;
 import com.profuturo.mock.services.dto.salida.error.ErrorRecurso;
 import com.profuturo.mock.services.dto.salida.error.Error400;
-import com.profuturo.mock.services.dto.salida.pensiones.responseCambiarContrasena;
-import com.profuturo.mock.services.dto.salida.pensiones.responseErrorCambiarContrasena;
-import com.profuturo.mock.services.dto.salida.pensiones.responseValidarAutenticacion;
-import com.profuturo.mock.services.dto.salida.pensiones.responseValidarAutenticacionSinUderId;
+import com.profuturo.mock.services.dto.salida.pensiones.*;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.math.BigDecimal;
+import java.util.Random;
 
 @Service
 public class serviceLoginPensionesImpl implements serviceLoginPensiones {
@@ -99,7 +97,7 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
 
     @Override
     public Object recuperarContrasena(requestRecuperarContrasena request) {
-        if(request.rqt.curp.equals("")) {
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
             Error400 error400response = new Error400();
             error400response.status = 400;
             error400response.resultado = false;
@@ -137,5 +135,93 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
             }
         }
 
+    }
+
+    @Override
+    public Object actualizarPassword(rqtActualizarPassword request) {
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Curp no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else{
+            if(request.rqt.curp.equals("GACL900726HDFRRS02")){
+                responseCambiarContrasena responseCambiarContrasena=new responseCambiarContrasena();
+                responseCambiarContrasena.resultado=true;
+                responseCambiarContrasena.status=200;
+                return responseCambiarContrasena;
+            }
+            if(request.rqt.curp.equals("GACL900726HDFRRS00")){
+                responseErrorCambiarContrasena responseErrorCambiarContrasena=new responseErrorCambiarContrasena();
+                responseErrorCambiarContrasena.resultado=false;
+                responseErrorCambiarContrasena.status=200;
+                responseErrorCambiarContrasena.descripcionError="Fallo Cambio de Contraseña";
+                return responseErrorCambiarContrasena;
+            }
+            if(request.rqt.curp.equals("GACL900726HDFRRS03")){
+                responseErrorCambiarContrasena responseErrorCambiarContrasena=new responseErrorCambiarContrasena();
+                responseErrorCambiarContrasena.resultado=false;
+                responseErrorCambiarContrasena.status=200;
+                responseErrorCambiarContrasena.descripcionError="Fallo Busqueda";
+                return responseErrorCambiarContrasena;
+            }
+            else {
+                responseCambiarContrasena responseCambiarContrasena=new responseCambiarContrasena();
+                responseCambiarContrasena.resultado=true;
+                responseCambiarContrasena.status=200;
+                return responseCambiarContrasena;
+            }
+        }
+    }
+
+    @Override
+    public Object autenticaUsuarioPensiones(rqtautenticaUsuarioPensiones request) {
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Curp no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else{
+            responseAutenticaUsuarioPensiones responseAutenticaUsuarioPensiones=new responseAutenticaUsuarioPensiones();
+            if(request.rqt.curp.equals("GACL900726HDFRRS02")){
+                responseAutenticaUsuarioPensiones.resultado=true;
+                responseAutenticaUsuarioPensiones.idCliente= 5648932153L;
+                responseAutenticaUsuarioPensiones.poliza=17000215358L;
+                responseAutenticaUsuarioPensiones.status=200;
+                return responseAutenticaUsuarioPensiones;
+            }
+            if(request.rqt.curp.equals("GACL900726HDFRRS00")){
+                responseErrorAutenticaUsuarioPensiones responseErrorAutenticaUsuarioPensiones=new responseErrorAutenticaUsuarioPensiones();
+                responseErrorAutenticaUsuarioPensiones.resultado=false;
+                responseErrorAutenticaUsuarioPensiones.status=404;
+                responseErrorAutenticaUsuarioPensiones.statusText="Unauthorized";
+                return responseAutenticaUsuarioPensiones;
+            }
+            else {
+                responseAutenticaUsuarioPensiones.resultado=true;
+                // Generar números aleatorios
+                Random random = new Random();
+                responseAutenticaUsuarioPensiones.idCliente = 5000000000L + (Math.abs(random.nextLong()) % 1000000000L);
+                // Generar poliza en el rango 17000000000 - 17999999999
+                responseAutenticaUsuarioPensiones.poliza = 17000000000L + (Math.abs(random.nextLong()) % 1000000000L);
+                responseAutenticaUsuarioPensiones.status=200;
+                return responseAutenticaUsuarioPensiones;
+            }
+
+        }
+    }
+
+    @Override
+    public Object enviarfoliosmsuniv(rqtenviarFolioSmsUniv request) {
+
+        return null;
     }
 }

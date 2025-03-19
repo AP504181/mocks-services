@@ -1,11 +1,12 @@
 package com.profuturo.mock.services.service;
 
-import com.profuturo.mock.services.dto.entrada.requestCambiarContrasena;
-import com.profuturo.mock.services.dto.entrada.requestRecuperarContrasena;
-import com.profuturo.mock.services.dto.entrada.requestValidarAutenticacionPension;
+import com.profuturo.mock.services.dto.entrada.*;
 
 public interface serviceLoginPensiones {
     Object  validarAutenticacionPension(requestValidarAutenticacionPension request);
     Object  cambiarContrasena(requestCambiarContrasena request);
     Object  recuperarContrasena(requestRecuperarContrasena request);
+    Object  actualizarPassword(rqtActualizarPassword request);
+    Object  autenticaUsuarioPensiones(rqtautenticaUsuarioPensiones request);
+    Object  enviarfoliosmsuniv(rqtenviarFolioSmsUniv request);
 }
