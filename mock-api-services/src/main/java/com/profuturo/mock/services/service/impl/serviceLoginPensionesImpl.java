@@ -2,15 +2,24 @@ package com.profuturo.mock.services.service.impl;
 
 import com.profuturo.mock.services.controladores.LoginPensionesControlador;
 import com.profuturo.mock.services.dto.entrada.*;
+import com.profuturo.mock.services.dto.entrada.buscarpoliza.Beneficiario;
+import com.profuturo.mock.services.dto.entrada.buscarpoliza.Titular;
+import com.profuturo.mock.services.dto.entrada.buscarpoliza.responseBuscarPoliza;
+import com.profuturo.mock.services.dto.entrada.buscarpoliza.responseErrorBuscarPoliza;
+import com.profuturo.mock.services.dto.salida.CuentaConRegistro;
 import com.profuturo.mock.services.dto.salida.error.ErrorRecurso;
 import com.profuturo.mock.services.dto.salida.error.Error400;
 import com.profuturo.mock.services.dto.salida.pensiones.*;
+import com.profuturo.mock.services.dto.salida.responseBuscarCurpPensiones;
+import com.profuturo.mock.services.dto.salida.responseErrorBuscarCurpPensiones;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -249,6 +258,140 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
 
     @Override
     public Object registrarUsuarioPensiones(rqtRegistrarUsuarioPensiones request) {
+
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Curp no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else{
+            if(request.rqt.curp.equals("GACL900726HDFRRS02")){
+                responseRegistrarUsuarioPensiones responseRegistrarUsuarioPensiones=new responseRegistrarUsuarioPensiones();
+                responseRegistrarUsuarioPensiones.resultado=true;
+                responseRegistrarUsuarioPensiones.status=200;
+                responseRegistrarUsuarioPensiones.idClienteUnico= "151426247";
+                responseRegistrarUsuarioPensiones.poliza=17000215358L;
+                responseRegistrarUsuarioPensiones.curp="GACL900726HDFRRS02";
+                return responseRegistrarUsuarioPensiones;
+            }else {
+                responseRegistrarUsuarioPensiones responseRegistrarUsuarioPensiones=new responseRegistrarUsuarioPensiones();
+                responseRegistrarUsuarioPensiones.resultado=true;
+                responseRegistrarUsuarioPensiones.status=200;
+                responseRegistrarUsuarioPensiones.idClienteUnico= "151426247";
+                Random random = new Random();
+                responseRegistrarUsuarioPensiones.poliza = 17000000000L + (Math.abs(random.nextLong()) % 1000000000L);
+                responseRegistrarUsuarioPensiones.curp=request.rqt.curp;
+                return responseRegistrarUsuarioPensiones;
+            }
+        }
+
+    }
+
+    @Override
+    public Object buscarPolizaPensiones(rqtbuscarPolizaPensiones request) {
+        if(request.rqt.poliza>0L){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Poliza no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else{
+            if(request.rqt.poliza==17000215358L) {
+                responseBuscarPoliza responseBuscarPolizaPensiones = new responseBuscarPoliza();
+                // Crear titular
+                Titular titular = new Titular();
+                titular.nombre = "LUIS RAMON";
+                titular.apellidoPaterno = "GARCIA";
+                titular.apellidoMaterno = "DE LA CRUZ";
+                titular.idClienteUnico = "151426247";
+                titular.correo = "luisramon2099@hotmail.com";
+                titular.curp = "GACL900726HDFRRS02";
+                titular.poliza = 17000215358L;
+                titular.celular = 5554038329L;
+
+                // Crear beneficiarios
+                List<Beneficiario> beneficiarios = new ArrayList<>();
+                for (int i = 0; i < 2; i++) {
+                    Beneficiario beneficiario = new Beneficiario();
+                    beneficiario.nombre = "LUIS RAMON";
+                    beneficiario.apellidoPaterno = "GARCIA";
+                    beneficiario.apellidoMaterno = "DE LA CRUZ";
+                    beneficiario.idClienteUnico = "151426247";
+                    beneficiario.correo = "luisramon2099@hotmail.com";
+                    beneficiario.curp = "GACL900726HDFRRS02";
+                    beneficiario.poliza = 17000215358L;
+                    beneficiario.celular = 5554038329L;
+                    beneficiarios.add(beneficiario);
+                }
+
+                // Crear la respuesta Root
+                responseBuscarPoliza response = new responseBuscarPoliza();
+                response.resultado = true;
+                response.status = 200;
+                response.tramiteEnProceso = false;
+                response.titular = titular;
+                response.beneficiarios = new ArrayList<>(beneficiarios);
+                return responseBuscarPolizaPensiones;
+            }else{
+                responseErrorBuscarPoliza responseErrorBuscarPoliza=new responseErrorBuscarPoliza();
+                responseErrorBuscarPoliza.resultado=false;
+                responseErrorBuscarPoliza.descripcionError="No se encontro la poliza";
+                responseErrorBuscarPoliza.status=404;
+
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Object buscarCurpPensiones(rqtbuscarCurpPensiones request) {
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Curp no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else {
+            if(request.rqt.curp.equals("GACL900726HDFRRS02")){
+                // Crear cuentaConRegistro
+                CuentaConRegistro cuenta = new CuentaConRegistro();
+                cuenta.nombre = "LUIS RAMON";
+                cuenta.apellidoPaterno = "GARCIA";
+                cuenta.apellidoMaterno = "DE LA CRUZ";
+                cuenta.idClienteUnico = "151426247";
+                cuenta.correo = "luisramon2099@hotmail.com";
+                cuenta.curp = "GACL900726HDFRRS02";
+                cuenta.poliza = 17000215358L;
+                cuenta.celular = 5554038329L;
+
+                // Crear la respuesta Root
+                responseBuscarCurpPensiones response = new responseBuscarCurpPensiones();
+                response.resultado = true;
+                response.status = 200;
+                response.tramiteEnProceso = false;
+                response.permitirRegistro = false;
+                response.cuentaConRegistro = cuenta;
+
+                return response;
+
+            }else {
+                responseErrorBuscarCurpPensiones responseErrorBuscarCurpPensiones=new responseErrorBuscarCurpPensiones();
+                responseErrorBuscarCurpPensiones.resultado=false;
+                responseErrorBuscarCurpPensiones.descripcionError="No se encontraron coincidencias.";
+                responseErrorBuscarCurpPensiones.status=404;
+            }
+
+        }
         return null;
     }
 }

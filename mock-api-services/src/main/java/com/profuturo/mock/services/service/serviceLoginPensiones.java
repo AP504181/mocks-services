@@ -11,4 +11,6 @@ public interface serviceLoginPensiones {
     Object  autenticaUsuarioPensiones(rqtautenticaUsuarioPensiones request);
     Object  enviarfoliosmsuniv(rqtenviarFolioSmsUniv request);
     Object  registrarUsuarioPensiones(rqtRegistrarUsuarioPensiones request);
+    Object  buscarPolizaPensiones(rqtbuscarPolizaPensiones request);
+    Object  buscarCurpPensiones(rqtbuscarCurpPensiones request);
 }
