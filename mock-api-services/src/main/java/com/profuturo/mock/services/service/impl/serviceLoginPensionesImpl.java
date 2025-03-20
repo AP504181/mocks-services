@@ -221,7 +221,34 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
 
     @Override
     public Object enviarfoliosmsuniv(rqtenviarFolioSmsUniv request) {
+        responseEnviarFolioSmsUniv responseEnviarFolioSmsUniv=new responseEnviarFolioSmsUniv();
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Curp no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else{
+            if(request.rqt.curp.equals("GACL900726HDFRRS02")){
+                responseEnviarFolioSmsUniv.resultado=true;
+                responseEnviarFolioSmsUniv.status="200";
+                return responseEnviarFolioSmsUniv;
+            }
 
+            else {
+                responseEnviarFolioSmsUniv.resultado=false;
+                responseEnviarFolioSmsUniv.status="400";
+                return responseEnviarFolioSmsUniv;
+            }
+        }
+
+    }
+
+    @Override
+    public Object registrarUsuarioPensiones(rqtRegistrarUsuarioPensiones request) {
         return null;
     }
 }

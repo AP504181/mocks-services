@@ -1,6 +1,7 @@
 package com.profuturo.mock.services.service;
 
 import com.profuturo.mock.services.dto.entrada.*;
+import com.profuturo.mock.services.dto.salida.pensiones.rqtRegistrarUsuarioPensiones;
 
 public interface serviceLoginPensiones {
     Object  validarAutenticacionPension(requestValidarAutenticacionPension request);
@@ -9,4 +10,5 @@ public interface serviceLoginPensiones {
     Object  actualizarPassword(rqtActualizarPassword request);
     Object  autenticaUsuarioPensiones(rqtautenticaUsuarioPensiones request);
     Object  enviarfoliosmsuniv(rqtenviarFolioSmsUniv request);
+    Object  registrarUsuarioPensiones(rqtRegistrarUsuarioPensiones request);
 }

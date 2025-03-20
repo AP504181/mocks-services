@@ -1,6 +1,7 @@
 package com.profuturo.mock.services.controladores;
 
 import com.profuturo.mock.services.dto.entrada.*;
+import com.profuturo.mock.services.dto.salida.pensiones.rqtRegistrarUsuarioPensiones;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,6 +88,17 @@ public class LoginPensionesControlador {
 		Map<String, Object> response = new HashMap<>();
 		try {
 			Object  responseautenticar = serviceloginpensiones.enviarfoliosmsuniv(request);
+			return ResponseEntity.ok(responseautenticar);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
+		}
+	}
+
+	@PostMapping("/registrarUsuarioPensiones")
+	public ResponseEntity<?> registrarUsuarioPensiones(@RequestBody rqtRegistrarUsuarioPensiones request) {
+		Map<String, Object> response = new HashMap<>();
+		try {
+			Object  responseautenticar = serviceloginpensiones.registrarUsuarioPensiones(request);
 			return ResponseEntity.ok(responseautenticar);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
