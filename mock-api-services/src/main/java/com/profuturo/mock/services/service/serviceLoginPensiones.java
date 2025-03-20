@@ -10,6 +10,7 @@ public interface serviceLoginPensiones {
     Object  actualizarPassword(rqtActualizarPassword request);
     Object  autenticaUsuarioPensiones(rqtautenticaUsuarioPensiones request);
     Object  enviarfoliosmsuniv(rqtenviarFolioSmsUniv request);
+    Object validarFolioSmsUniv(rqtValidarFolioSmsUniv request);
     Object  registrarUsuarioPensiones(rqtRegistrarUsuarioPensiones request);
     Object  buscarPolizaPensiones(rqtbuscarPolizaPensiones request);
     Object  buscarCurpPensiones(rqtbuscarCurpPensiones request);

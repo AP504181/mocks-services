@@ -49,7 +49,7 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
                     responseValidarAutenticacion responseValidarAutenticacion=new responseValidarAutenticacion();
                     responseValidarAutenticacion.resultado=true;
                     responseValidarAutenticacion.status=200;
-                    responseValidarAutenticacion.idUserOk="123456";
+                    responseValidarAutenticacion.idUserOk="00uoobnpfvY3RSBlE697";
                     return responseValidarAutenticacion;
 
                 }
@@ -205,6 +205,7 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
                 responseAutenticaUsuarioPensiones.idCliente= 5648932153L;
                 responseAutenticaUsuarioPensiones.poliza=17000215358L;
                 responseAutenticaUsuarioPensiones.status=200;
+                responseAutenticaUsuarioPensiones.curp="GACL900726HDFRRS02";
                 return responseAutenticaUsuarioPensiones;
             }
             if(request.rqt.curp.equals("GACL900726HDFRRS00")){
@@ -254,6 +255,34 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
             }
         }
 
+    }
+
+    @Override
+    public Object validarFolioSmsUniv(rqtValidarFolioSmsUniv request) {
+
+        if(request.rqt.curp.equals("")||request.rqt.curp==null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Curp no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else {
+            if (request.rqt.curp.equals("GACL900726HDFRRS02")) {
+                responseValidarFolioSmsUniv responseValidarFolioSmsUniv = new responseValidarFolioSmsUniv();
+                responseValidarFolioSmsUniv.resultado = true;
+                responseValidarFolioSmsUniv.status = "200";
+                return responseValidarFolioSmsUniv;
+            } else {
+                responseErrorValidarFolioSmsUniv responseValidarFolioSmsUniv = new responseErrorValidarFolioSmsUniv();
+                responseValidarFolioSmsUniv.resultado = false;
+                responseValidarFolioSmsUniv.status = "401";
+                responseValidarFolioSmsUniv.statusText = "Folio expirado";
+                return responseValidarFolioSmsUniv;
+            }
+        }
     }
 
     @Override

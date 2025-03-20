@@ -94,16 +94,18 @@ public class LoginPensionesControlador {
 		}
 	}
 
-	@PostMapping("/registrarUsuarioPensiones")
-	public ResponseEntity<?> registrarUsuarioPensiones(@RequestBody rqtRegistrarUsuarioPensiones request) {
+	@PostMapping("/validar-folio-sms-univ")
+	public ResponseEntity<?> validarFolioSmsUniv(@RequestBody rqtValidarFolioSmsUniv request) {
 		Map<String, Object> response = new HashMap<>();
 		try {
-			Object  responseautenticar = serviceloginpensiones.registrarUsuarioPensiones(request);
+			Object  responseautenticar = serviceloginpensiones.validarFolioSmsUniv(request);
 			return ResponseEntity.ok(responseautenticar);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
 		}
 	}
+
+
 
 	@PostMapping("/buscar-poliza-pensiones")
 	public ResponseEntity<?> buscarPolizaPensiones(@RequestBody rqtbuscarPolizaPensiones request) {
@@ -116,15 +118,6 @@ public class LoginPensionesControlador {
 		}
 	}
 
-	@PostMapping("/buscar-curp-pensiones")
-	public ResponseEntity<?> buscarCurpPensiones(@RequestBody rqtbuscarCurpPensiones request) {
-		Map<String, Object> response = new HashMap<>();
-		try {
-			Object  responseautenticar = serviceloginpensiones.buscarCurpPensiones(request);
-			return ResponseEntity.ok(responseautenticar);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
-		}
-	}
+
 }
 
