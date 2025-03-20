@@ -338,7 +338,7 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
                 response.tramiteEnProceso = false;
                 response.titular = titular;
                 response.beneficiarios = new ArrayList<>(beneficiarios);
-                return responseBuscarPolizaPensiones;
+                return response;
             }else{
                 responseErrorBuscarPoliza responseErrorBuscarPoliza=new responseErrorBuscarPoliza();
                 responseErrorBuscarPoliza.resultado=false;
