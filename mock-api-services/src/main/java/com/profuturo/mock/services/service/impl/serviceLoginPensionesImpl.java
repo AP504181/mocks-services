@@ -293,7 +293,7 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
 
     @Override
     public Object buscarPolizaPensiones(rqtbuscarPolizaPensiones request) {
-        if(request.rqt.poliza>0L){
+        if(request.rqt.poliza==0L){
             Error400 error400response = new Error400();
             error400response.status = 400;
             error400response.resultado = false;
