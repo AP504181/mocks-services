@@ -1,7 +1,10 @@
 package com.profuturo.mock.services.controladores;
 
+import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
+import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +18,17 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/mocks")
+@RequestMapping("/mb")
 public class BitacoraProcesoControlador {
 
 	Logger logger = LogManager.getLogger(BitacoraProcesoControlador.class);
+	private final serviceLoginPensiones serviceloginpensiones;
+
+	public BitacoraProcesoControlador(serviceLoginPensiones serviceloginpensiones) {
+		this.serviceloginpensiones = serviceloginpensiones;
+	}
+
+
 	@PostMapping("/consultaexpediente0103")
 	public ResponseEntity<Map<String, Object>> getMockResponse(@RequestBody(required = false) Map<String, Object> request) {
 		if (request == null) {
@@ -134,6 +144,17 @@ public class BitacoraProcesoControlador {
 		response.put("datosGenerales", datosGenerales);
 
 		return ResponseEntity.ok(response);
+	}
+
+	@PostMapping("/appMovil/rest/cuo/buscarCliente")
+	public ResponseEntity<?> getMockBuscarCliente(@RequestBody rqtBuscarCliente request)  {
+		Map<String, Object> response = new HashMap<>();
+		try {
+			Object  responsebuscarcliente= serviceloginpensiones.buscarCliente(request);
+			return ResponseEntity.ok(responsebuscarcliente);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
+		}
 	}
 }
 
