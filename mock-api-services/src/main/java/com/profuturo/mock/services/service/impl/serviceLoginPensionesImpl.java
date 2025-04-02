@@ -529,6 +529,36 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
                 responseCliente response = convertirJsonAObjeto(json);
                 return response;
             }
+            else if(request.rqt.curp.equals("PAFA880415MMCLRL05") ){
+                String json = "{\n" +
+                        "    \"clientes\": [\n" +
+                        "        {\n" +
+                        "            \"idCliente\": 164903206,\n" +
+                        "            \"idContrato\": 12336397,\n" +
+                        "            \"numeroCuenta\": \"3201008254\",\n" +
+                        "            \"nss\": \"04118801978\",\n" +
+                        "            \"curp\": \"PAFA880415MMCLRL05\",\n" +
+                        "            \"rfc\": \"PAFA880415P20\",\n" +
+                        "            \"nombre\": \"ALEJANDRA\",\n" +
+                        "            \"apellidoPaterno\": \"PALACIOS\",\n" +
+                        "            \"apellidoMaterno\": \"FRAGOSO\",\n" +
+                        "            \"codigoEdoAfil\": 10,\n" +
+                        "            \"estadoAfil\": \"CERTIFICADO ACTIVO\",\n" +
+                        "            \"indicadorExpIdentificacion\": true,\n" +
+                        "            \"indicadorEnrolamientoBiometrico\": true,\n" +
+                        "            \"fechaExpedIdentificacion\": \"29-03-2021\",\n" +
+                        "            \"indicadorMDBasica\": true,\n" +
+                        "            \"indicadorMDComp\": true,\n" +
+                        "            \"indicadorMDCompCert\": true,\n" +
+                        "            \"indicadorExpIdTransito\": false,\n" +
+                        "            \"indicadorEnrolamientoTransito\": false\n" +
+                        "        }\n" +
+                        "    ]\n" +
+                        "}";
+
+                responseCliente response = convertirJsonAObjeto(json);
+                return response;
+            }
             else if(request.rqt.curp.equals("NARE000922XMCVYMA3") ){
                 String json = "{\n" +
                         "    \"clientes\": [\n" +
