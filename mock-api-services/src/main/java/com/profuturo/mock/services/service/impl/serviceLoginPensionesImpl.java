@@ -670,6 +670,125 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
                 responseCliente response = convertirJsonAObjeto(json);
                 return response;
             }
+            else if(request.rqt.numeroCuenta.equals("3202567516") ){
+                String json = "{\n" +
+                        "    \"clientes\": [\n" +
+                        "        {\n" +
+                        "            \"idCliente\": 169578287,\n" +
+                        "            \"idContrato\": 15383612,\n" +
+                        "            \"numeroCuenta\": \"3202567516\",\n" +
+                        "            \"curp\": \"VARG740711HDFLDS09\",\n" +
+                        "            \"rfc\": \"VARG74071182A\",\n" +
+                        "            \"nombre\": \"GUSTAVO\",\n" +
+                        "            \"apellidoPaterno\": \"VALVERDE\",\n" +
+                        "            \"apellidoMaterno\": \"RODRIGUEZ\",\n" +
+                        "            \"codigoEdoAfil\": 10,\n" +
+                        "            \"estadoAfil\": \"CERTIFICADO ACTIVO\",\n" +
+                        "            \"indicadorExpIdentificacion\": true,\n" +
+                        "            \"indicadorEnrolamientoBiometrico\": true,\n" +
+                        "            \"fechaExpedIdentificacion\": \"27-11-2023\",\n" +
+                        "            \"indicadorMDBasica\": false,\n" +
+                        "            \"indicadorMDComp\": false,\n" +
+                        "            \"indicadorMDCompCert\": false,\n" +
+                        "            \"indicadorExpIdTransito\": false,\n" +
+                        "            \"indicadorEnrolamientoTransito\": false\n" +
+                        "        }\n" +
+                        "    ]\n" +
+                        "}";
+
+                responseCliente response = convertirJsonAObjeto(json);
+                return response;
+            }
+            else if(request.rqt.numeroCuenta.equals("3300729915") ){
+                String json = "{\n" +
+                        "    \"clientes\": [\n" +
+                        "        {\n" +
+                        "            \"idCliente\": 168138246,\n" +
+                        "            \"idContrato\": 14264965,\n" +
+                        "            \"numeroCuenta\": \"3300729915\",\n" +
+                        "            \"nss\": \"50179922963\",\n" +
+                        "            \"curp\": \"RORM990804HCHDDG09\",\n" +
+                        "            \"rfc\": \"RORM990804R70\",\n" +
+                        "            \"nombre\": \"MIGUEL ANGEL\",\n" +
+                        "            \"apellidoPaterno\": \"RODRIGUEZ\",\n" +
+                        "            \"apellidoMaterno\": \"RODRIGUEZ\",\n" +
+                        "            \"codigoEdoAfil\": 10,\n" +
+                        "            \"estadoAfil\": \"CERTIFICADO ACTIVO\",\n" +
+                        "            \"indicadorExpIdentificacion\": true,\n" +
+                        "            \"indicadorEnrolamientoBiometrico\": true,\n" +
+                        "            \"fechaExpedIdentificacion\": \"03-08-2022\",\n" +
+                        "            \"indicadorMDBasica\": true,\n" +
+                        "            \"indicadorMDComp\": true,\n" +
+                        "            \"indicadorMDCompCert\": true,\n" +
+                        "            \"indicadorExpIdTransito\": false,\n" +
+                        "            \"indicadorEnrolamientoTransito\": false\n" +
+                        "        }\n" +
+                        "    ]\n" +
+                        "}";
+
+                responseCliente response = convertirJsonAObjeto(json);
+                return response;
+            }
+            else if(request.rqt.numeroCuenta.equals("2720000456") ){
+                String json = "{\n" +
+                        "    \"clientes\": [\n" +
+                        "        {\n" +
+                        "            \"idCliente\": 153488773,\n" +
+                        "            \"idContrato\": 5890131,\n" +
+                        "            \"numeroCuenta\": \"2720000456\",\n" +
+                        "            \"nss\": \"92977807418\",\n" +
+                        "            \"curp\": \"AABP781204HMCLRB00\",\n" +
+                        "            \"rfc\": \"AABP781204DTA\",\n" +
+                        "            \"nombre\": \"PABLO\",\n" +
+                        "            \"apellidoPaterno\": \"ALBA\",\n" +
+                        "            \"apellidoMaterno\": \"BARRERA\",\n" +
+                        "            \"codigoEdoAfil\": 10,\n" +
+                        "            \"estadoAfil\": \"CERTIFICADO ACTIVO\",\n" +
+                        "            \"indicadorExpIdentificacion\": false,\n" +
+                        "            \"indicadorEnrolamientoBiometrico\": false,\n" +
+                        "            \"fechaExpedIdentificacion\": \"02-06-2022\",\n" +
+                        "            \"indicadorMDBasica\": true,\n" +
+                        "            \"indicadorMDComp\": true,\n" +
+                        "            \"indicadorMDCompCert\": true,\n" +
+                        "            \"indicadorExpIdTransito\": false,\n" +
+                        "            \"indicadorEnrolamientoTransito\": false\n" +
+                        "        }\n" +
+                        "    ]\n" +
+                        "}";
+
+                responseCliente response = convertirJsonAObjeto(json);
+                return response;
+            }
+            else if(request.rqt.numeroCuenta.equals("3201008254") ){
+                String json = "{\n" +
+                        "    \"clientes\": [\n" +
+                        "        {\n" +
+                        "            \"idCliente\": 164903206,\n" +
+                        "            \"idContrato\": 12336397,\n" +
+                        "            \"numeroCuenta\": \"3201008254\",\n" +
+                        "            \"nss\": \"04118801978\",\n" +
+                        "            \"curp\": \"PAFA880415MMCLRL05\",\n" +
+                        "            \"rfc\": \"PAFA880415P20\",\n" +
+                        "            \"nombre\": \"ALEJANDRA\",\n" +
+                        "            \"apellidoPaterno\": \"PALACIOS\",\n" +
+                        "            \"apellidoMaterno\": \"FRAGOSO\",\n" +
+                        "            \"codigoEdoAfil\": 10,\n" +
+                        "            \"estadoAfil\": \"CERTIFICADO ACTIVO\",\n" +
+                        "            \"indicadorExpIdentificacion\": true,\n" +
+                        "            \"indicadorEnrolamientoBiometrico\": true,\n" +
+                        "            \"fechaExpedIdentificacion\": \"29-03-2021\",\n" +
+                        "            \"indicadorMDBasica\": true,\n" +
+                        "            \"indicadorMDComp\": true,\n" +
+                        "            \"indicadorMDCompCert\": true,\n" +
+                        "            \"indicadorExpIdTransito\": false,\n" +
+                        "            \"indicadorEnrolamientoTransito\": false\n" +
+                        "        }\n" +
+                        "    ]\n" +
+                        "}";
+
+                responseCliente response = convertirJsonAObjeto(json);
+                return response;
+            }
             else{
                 mensajeError errorresponse=new mensajeError();
                 errorresponse.mensajeError="No se ha encontrado el Cliente con la información ingresada";
