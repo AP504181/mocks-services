@@ -818,7 +818,7 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
                         "        \"idTipoTramite\": 6283,\n" +
                         "        \"numeroCuenta\": \"6442020594\",\n" +
                         "        \"nss\": \"39139733669\",\n" +
-                        "        \"curp\": \"HEJL971023HDFRLS03\",\n" +
+                        "        \"curp\": \"HEJL971023XDFRLS03\",\n" +
                         "        \"rfc\": \"HEJL971023UG1\",\n" +
                         "        \"apellidoPaterno\": \"HERRERA\",\n" +
                         "        \"apellidoMaterno\": \"JULIAN\",\n" +
