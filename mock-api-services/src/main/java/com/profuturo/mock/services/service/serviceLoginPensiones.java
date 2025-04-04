@@ -1,6 +1,7 @@
 package com.profuturo.mock.services.service;
 
 import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
+import com.profuturo.mock.services.dto.consultaInfoCliente.rqtrequestconsultarInformacionCliente;
 import com.profuturo.mock.services.dto.entrada.*;
 import com.profuturo.mock.services.dto.salida.pensiones.rqtRegistrarUsuarioPensiones;
 
@@ -18,4 +19,5 @@ public interface serviceLoginPensiones {
 
     ////
     Object  buscarCliente(rqtBuscarCliente request);
+    Object  consultarInformacionCliente(rqtrequestconsultarInformacionCliente request);
 }

@@ -1,10 +1,13 @@
 package com.profuturo.mock.services.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.profuturo.mock.services.Feign.ClienteFeign;
 import com.profuturo.mock.services.controladores.LoginPensionesControlador;
 import com.profuturo.mock.services.dto.buscarcliente.mensajeError;
 import com.profuturo.mock.services.dto.buscarcliente.responseCliente;
 import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
+import com.profuturo.mock.services.dto.consultaInfoCliente.responseConsultaInformacionCliente;
+import com.profuturo.mock.services.dto.consultaInfoCliente.rqtrequestconsultarInformacionCliente;
 import com.profuturo.mock.services.dto.entrada.*;
 import com.profuturo.mock.services.dto.entrada.buscarpoliza.Beneficiario;
 import com.profuturo.mock.services.dto.entrada.buscarpoliza.Titular;
@@ -17,6 +20,7 @@ import com.profuturo.mock.services.dto.salida.pensiones.*;
 import com.profuturo.mock.services.dto.salida.responseBuscarCurpPensiones;
 import com.profuturo.mock.services.dto.salida.responseErrorBuscarCurpPensiones;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
@@ -31,6 +35,9 @@ import java.util.Random;
 @Service
 public class serviceLoginPensionesImpl implements serviceLoginPensiones {
     Logger logger = LogManager.getLogger(LoginPensionesControlador.class);
+
+    @Autowired
+    private ClienteFeign clientefeign;
 
     @Override
     public Object validarAutenticacionPension(requestValidarAutenticacionPension request) {
@@ -797,10 +804,122 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
         }
     }
 
+    @Override
+    public Object consultarInformacionCliente(rqtrequestconsultarInformacionCliente request) {
+        if (request.rqt.idCliente == 0) {
+            mensajeError errorresponse = new mensajeError();
+            errorresponse.mensajeError = "No se ha encontrado el Cliente con la información ingresada";
+            return errorresponse;
+
+        } else {
+            if (request.rqt.idCliente==165637203) {
+                String json = "{\n" +
+                        "    \"datosBasicos\": {\n" +
+                        "        \"idTipoTramite\": 6283,\n" +
+                        "        \"numeroCuenta\": \"6442020594\",\n" +
+                        "        \"nss\": \"39139733669\",\n" +
+                        "        \"curp\": \"HEJL971023HDFRLS03\",\n" +
+                        "        \"rfc\": \"HEJL971023UG1\",\n" +
+                        "        \"apellidoPaterno\": \"HERRERA\",\n" +
+                        "        \"apellidoMaterno\": \"JULIAN\",\n" +
+                        "        \"nombre\": \"JOSE LUIS\",\n" +
+                        "        \"fechaNacimiento\": \"1997-10-22\",\n" +
+                        "        \"idEntidadNacimiento\": 9,\n" +
+                        "        \"idPaisNacimiento\": 231,\n" +
+                        "        \"idPaisNacionalidad\": 231,\n" +
+                        "        \"idGenero\": 327,\n" +
+                        "        \"idOcupacion\": 5768,\n" +
+                        "        \"idGiroEmpresarial\": 1717,\n" +
+                        "        \"idNivelEstudios\": 3100,\n" +
+                        "        \"tipoDocumentoProbatorio\": 45,\n" +
+                        "        \"claveRegimenAfiliacion\": \"1\"\n" +
+                        "    },\n" +
+                        "    \"domicilios\": [\n" +
+                        "        {\n" +
+                        "            \"idTipoDomicilio\": 947,\n" +
+                        "            \"calle\": \"C FRESNOS\",\n" +
+                        "            \"noExterior\": \"MZ 4\",\n" +
+                        "            \"noInterior\": \"LT 2\",\n" +
+                        "            \"colonia\": \"SAN JUAN TEPEXIMILPA\",\n" +
+                        "            \"ciudadPoblacion\": \"TLALPAN\",\n" +
+                        "            \"codigoPostal\": \"14427\",\n" +
+                        "            \"idEntidadFederativa\": 9,\n" +
+                        "            \"delegacionMunicipio\": \"TLALPAN\",\n" +
+                        "            \"entidadFederativa\": \"CIUDAD DE MEXICO\",\n" +
+                        "            \"idPais\": 231,\n" +
+                        "            \"isPreferente\": true\n" +
+                        "        }\n" +
+                        "    ],\n" +
+                        "    \"telefonos\": [\n" +
+                        "        {\n" +
+                        "            \"idTipoTelefono\": 5787,\n" +
+                        "            \"lada\": \"55\",\n" +
+                        "            \"telefono\": \"67301807\",\n" +
+                        "            \"isPreferente\": false\n" +
+                        "        },\n" +
+                        "        {\n" +
+                        "            \"idTipoTelefono\": 5786,\n" +
+                        "            \"lada\": \"55\",\n" +
+                        "            \"telefono\": \"21926181\",\n" +
+                        "            \"isPreferente\": true\n" +
+                        "        }\n" +
+                        "    ],\n" +
+                        "    \"correos\": [\n" +
+                        "        {\n" +
+                        "            \"correo\": \"Profuturo.prueba@profuturo.com.mx\",\n" +
+                        "            \"isPreferente\": true\n" +
+                        "        }\n" +
+                        "    ],\n" +
+                        "    \"beneficiarios\": [\n" +
+                        "        {\n" +
+                        "            \"idPersonaBuc\": 169734489,\n" +
+                        "            \"apellidoPaterno\": \"CEDILLO\",\n" +
+                        "            \"apellidoMaterno\": \"ESPINOZA\",\n" +
+                        "            \"nombre\": \"SAMANTA\",\n" +
+                        "            \"curp\": \"CEES980427MMCDSM01\",\n" +
+                        "            \"idParentesco\": \"3079\",\n" +
+                        "            \"subcuentas\": [\n" +
+                        "                {\n" +
+                        "                    \"idSubcuenta\": 7127,\n" +
+                        "                    \"subcuenta\": \"RCV IMSS\",\n" +
+                        "                    \"porcentaje\": 100\n" +
+                        "                }\n" +
+                        "            ],\n" +
+                        "            \"domicilios\": [],\n" +
+                        "            \"telefonos\": [],\n" +
+                        "            \"correos\": []\n" +
+                        "        }\n" +
+                        "    ],\n" +
+                        "    \"indicadoresMD\": {\n" +
+                        "        \"indicadorMDBasica\": false,\n" +
+                        "        \"indicadorMDComp\": false,\n" +
+                        "        \"indicadorMDCompCert\": false\n" +
+                        "    }\n" +
+                        "}";
+
+                responseConsultaInformacionCliente response = convertirJsonAObjetoConsultaInformacionCliente(json);
+                return response;
+            }
+            else{
+                responseConsultaInformacionCliente response= clientefeign.consultarInformacionCliente(request);
+                return response;
+            }
+        }
+    }
+
     public static responseCliente convertirJsonAObjeto(String json) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.readValue(json, responseCliente.class);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static responseConsultaInformacionCliente convertirJsonAObjetoConsultaInformacionCliente(String json) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(json, responseConsultaInformacionCliente.class);
         } catch (Exception e) {
             return null;
         }

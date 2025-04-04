@@ -1,6 +1,7 @@
 package com.profuturo.mock.services.controladores;
 
 import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
+import com.profuturo.mock.services.dto.consultaInfoCliente.rqtrequestconsultarInformacionCliente;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -151,6 +152,17 @@ public class BitacoraProcesoControlador {
 		Map<String, Object> response = new HashMap<>();
 		try {
 			Object  responsebuscarcliente= serviceloginpensiones.buscarCliente(request);
+			return ResponseEntity.ok(responsebuscarcliente);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
+		}
+	}
+
+	@PostMapping("/appMovil/rest/cuo/consultarInformacionCliente")
+	public ResponseEntity<?> consultarInformacionCliente(@RequestBody rqtrequestconsultarInformacionCliente request)  {
+		Map<String, Object> response = new HashMap<>();
+		try {
+			Object  responsebuscarcliente= serviceloginpensiones.consultarInformacionCliente(request);
 			return ResponseEntity.ok(responsebuscarcliente);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
