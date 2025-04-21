@@ -1,6 +1,7 @@
 package com.profuturo.mock.services.Feign;
 
 
+import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
 import com.profuturo.mock.services.dto.consultaInfoCliente.responseConsultaInformacionCliente;
 import com.profuturo.mock.services.dto.consultaInfoCliente.rqtrequestconsultarInformacionCliente;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,6 +18,12 @@ public interface ClienteFeign {
     @PostMapping("/consultarInformacionCliente")
     responseConsultaInformacionCliente consultarInformacionCliente(
             @RequestBody rqtrequestconsultarInformacionCliente request
+    );
+
+
+    @PostMapping("/buscarCliente")
+    String buscarCliente(
+            @RequestBody rqtBuscarCliente request
     );
 
 }
