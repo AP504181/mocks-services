@@ -1,6 +1,7 @@
 package com.profuturo.mock.services.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.profuturo.mock.services.Feign.ClientConsultaExpediente;
 import com.profuturo.mock.services.Feign.ClienteFeign;
 import com.profuturo.mock.services.controladores.LoginPensionesControlador;
 import com.profuturo.mock.services.dto.buscarcliente.mensajeError;
@@ -8,6 +9,8 @@ import com.profuturo.mock.services.dto.buscarcliente.responseCliente;
 import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
 import com.profuturo.mock.services.dto.consultaInfoCliente.responseConsultaInformacionCliente;
 import com.profuturo.mock.services.dto.consultaInfoCliente.rqtrequestconsultarInformacionCliente;
+import com.profuturo.mock.services.dto.consultaexpediente.requestConsultaExpediente0103;
+import com.profuturo.mock.services.dto.consultaexpediente.responseConsultaExpediente0103;
 import com.profuturo.mock.services.dto.entrada.*;
 import com.profuturo.mock.services.dto.entrada.buscarpoliza.Beneficiario;
 import com.profuturo.mock.services.dto.entrada.buscarpoliza.Titular;
@@ -38,6 +41,9 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
 
     @Autowired
     private ClienteFeign clientefeign;
+
+    @Autowired
+    private ClientConsultaExpediente clientconsultaexpediente;
 
     @Override
     public Object validarAutenticacionPension(requestValidarAutenticacionPension request) {
@@ -1302,6 +1308,248 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
         }
     }
 
+    @Override
+    public Object consultarconsultaExpediente(requestConsultaExpediente0103 request) {
+        if(request== null){
+            Error400 error400response = new Error400();
+            error400response.status = 400;
+            error400response.resultado = false;
+            ErrorRecurso errorRecurso = new ErrorRecurso();
+            errorRecurso.codigo = "400";
+            errorRecurso.descripcion = "Request no puede ser nulo";
+            error400response.error = errorRecurso;
+            return error400response;
+        }else {
+            if (request.curpTrabajador.equals("GASK881104XMCRRR05")) {
+                String json = "{\n" +
+                        "   \"idExpUnico\":744393,\n" +
+                        "   \"cveAfore\":534,\n" +
+                        "   \"curpAsesor\":\"JIMA940429HDFMTR06\",\n" +
+                        "   \"cveServicio\":\"0103\",\n" +
+                        "   \"curpTrabajador\":\"GASK881104XMCRRR05\",\n" +
+                        "   \"curpSolicitante\":\"GASK881104XMCRRR05\",\n" +
+                        "   \"nss\":\"28078815397\",\n" +
+                        "   \"rol\":\"01\",\n" +
+                        "   \"indicaImg\":\"0\",\n" +
+                        "   \"indicaDatos\":\"1\",\n" +
+                        "   \"selloVerificacionBiometrica\":\"85000550662735\",\n" +
+                        "   \"resultadoOperacion\":\"01\",\n" +
+                        "   \"diagnostico\":\"\",\n" +
+                        "   \"folioConsulta\":\"53401030000000000030927\",\n" +
+                        "   \"datosOperativosCuenta\":{\n" +
+                        "      \"relacionAfore\":\"01\",\n" +
+                        "      \"duplicidadCurp\":0,\n" +
+                        "      \"detalleCurpDuplicada\":[\n" +
+                        "         \n" +
+                        "      ],\n" +
+                        "      \"marcaOperativa\":[\n" +
+                        "         {\n" +
+                        "            \"marca\":\"AP01\",\n" +
+                        "            \"proceconvive\":\"A001\",\n" +
+                        "            \"convivencia\":0\n" +
+                        "         }\n" +
+                        "      ]\n" +
+                        "   },\n" +
+                        "   \"detalleExpediente\":[\n" +
+                        "      {\n" +
+                        "         \"tipoExpe\":\"\",\n" +
+                        "         \"vinculacionHib\":\"\",\n" +
+                        "         \"estatusExpe\":\"00\",\n" +
+                        "         \"fchFinVigenExp\":\"\",\n" +
+                        "         \"fchConformaExp\":\"\",\n" +
+                        "         \"fchActualizaExp\":\"\"\n" +
+                        "      }\n" +
+                        "   ],\n" +
+                        "   \"detalleImage\":[\n" +
+                        "      {\n" +
+                        "         \"tipoExpe\":\"01\",\n" +
+                        "         \"cveDoc\":\"\",\n" +
+                        "         \"fchFinVigenciaDoc\":\"\",\n" +
+                        "         \"fchActualizaDoc\":\"\"\n" +
+                        "      }\n" +
+                        "   ],\n" +
+                        "   \"detalleEnrolamiento\":[\n" +
+                        "      {\n" +
+                        "         \"tipoEnrolamiento\":\"01\",\n" +
+                        "         \"estatusEnrolamiento\":\"05\",\n" +
+                        "         \"aforeEnroladora\":534,\n" +
+                        "         \"fechaEnrolamiento\":\"31/12/2024\",\n" +
+                        "         \"biomCalidad\":2\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "         \"tipoEnrolamiento\":\"02\",\n" +
+                        "         \"estatusEnrolamiento\":\"05\",\n" +
+                        "         \"aforeEnroladora\":534,\n" +
+                        "         \"fechaEnrolamiento\":\"31/12/2024\",\n" +
+                        "         \"biomCalidad\":1\n" +
+                        "      }\n" +
+                        "   ],\n" +
+                        "   \"datosGenerales\":{\n" +
+                        "      \"rolDatos\":\"01\",\n" +
+                        "      \"curp\":\"GASK881104XMCRRR05\",\n" +
+                        "      \"nss\":\"\",\n" +
+                        "      \"rfcTitular\":\"\",\n" +
+                        "      \"apellidoPaterno\":\"\",\n" +
+                        "      \"apellidoMaterno\":\"\",\n" +
+                        "      \"nombre\":\"\",\n" +
+                        "      \"sexo\":{\n" +
+                        "         \"descripcionGenero\":\"\"\n" +
+                        "      },\n" +
+                        "      \"fechaNacimiento\":\"\",\n" +
+                        "      \"entidadNacimiento\":{\n" +
+                        "         \"cveEntidadFederativa\":\"00\",\n" +
+                        "         \"descripcionCveFede\":\"\",\n" +
+                        "         \"cveCorta\":\"\"\n" +
+                        "      },\n" +
+                        "      \"pais\":{\n" +
+                        "         \"clavePais\":\"\",\n" +
+                        "         \"descripcionPais\":\"\"\n" +
+                        "      },\n" +
+                        "      \"nacionalidad\":\"\",\n" +
+                        "      \"claveGiro\":\"\",\n" +
+                        "      \"gradoEstudios\":\"\",\n" +
+                        "      \"ocupacion\":\"\",\n" +
+                        "      \"telefono\":[\n" +
+                        "         \n" +
+                        "      ],\n" +
+                        "      \"domicilio\":[\n" +
+                        "         \n" +
+                        "      ],\n" +
+                        "      \"beneficiarios\":{\n" +
+                        "         \"indicadorDesignacion\":0,\n" +
+                        "         \"indicadorReforma\":2,\n" +
+                        "         \"fechaModificacionBeneficiario\":\"\",\n" +
+                        "         \"listaBeneficiarios\":[\n" +
+                        "            \n" +
+                        "         ]\n" +
+                        "      }\n" +
+                        "   },\n" +
+                        "   \"correo\":{\n" +
+                        "      \"correoElectronico\":\"\",\n" +
+                        "      \"verificado\":\"\"\n" +
+                        "   }\n" +
+                        "}";
+
+                responseConsultaExpediente0103 response = convertirJsonAObjetoConsultaExpediente0103(json);
+                return response;
+
+            }
+            else if(request.curpTrabajador.equals("CALA890520XDFHPN09")) {
+                String json = "{\n" +
+                        "   \"idExpUnico\":744399,\n" +
+                        "   \"cveAfore\":534,\n" +
+                        "   \"curpAsesor\":\"JIMA940429HDFMTR06\",\n" +
+                        "   \"cveServicio\":\"0103\",\n" +
+                        "   \"curpTrabajador\":\"CALA890520XDFHPN09\",\n" +
+                        "   \"curpSolicitante\":\"CALA890520XDFHPN09\",\n" +
+                        "   \"nss\":\"30088911869\",\n" +
+                        "   \"rol\":\"01\",\n" +
+                        "   \"indicaImg\":\"0\",\n" +
+                        "   \"indicaDatos\":\"1\",\n" +
+                        "   \"selloVerificacionBiometrica\":\"85000550662720\",\n" +
+                        "   \"resultadoOperacion\":\"01\",\n" +
+                        "   \"diagnostico\":\"\",\n" +
+                        "   \"folioConsulta\":\"53401030000000000030933\",\n" +
+                        "   \"datosOperativosCuenta\":{\n" +
+                        "      \"relacionAfore\":\"01\",\n" +
+                        "      \"duplicidadCurp\":0,\n" +
+                        "      \"detalleCurpDuplicada\":[\n" +
+                        "         \n" +
+                        "      ],\n" +
+                        "      \"marcaOperativa\":[\n" +
+                        "         \n" +
+                        "      ]\n" +
+                        "   },\n" +
+                        "   \"detalleExpediente\":[\n" +
+                        "      {\n" +
+                        "         \"tipoExpe\":\"\",\n" +
+                        "         \"vinculacionHib\":\"\",\n" +
+                        "         \"estatusExpe\":\"00\",\n" +
+                        "         \"fchFinVigenExp\":\"\",\n" +
+                        "         \"fchConformaExp\":\"\",\n" +
+                        "         \"fchActualizaExp\":\"\"\n" +
+                        "      }\n" +
+                        "   ],\n" +
+                        "   \"detalleImage\":[\n" +
+                        "      {\n" +
+                        "         \"tipoExpe\":\"01\",\n" +
+                        "         \"cveDoc\":\"\",\n" +
+                        "         \"fchFinVigenciaDoc\":\"\",\n" +
+                        "         \"fchActualizaDoc\":\"\"\n" +
+                        "      }\n" +
+                        "   ],\n" +
+                        "   \"detalleEnrolamiento\":[\n" +
+                        "      {\n" +
+                        "         \"tipoEnrolamiento\":\"01\",\n" +
+                        "         \"estatusEnrolamiento\":\"05\",\n" +
+                        "         \"aforeEnroladora\":534,\n" +
+                        "         \"fechaEnrolamiento\":\"31/12/2024\",\n" +
+                        "         \"biomCalidad\":2\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "         \"tipoEnrolamiento\":\"02\",\n" +
+                        "         \"estatusEnrolamiento\":\"05\",\n" +
+                        "         \"aforeEnroladora\":534,\n" +
+                        "         \"fechaEnrolamiento\":\"31/12/2024\",\n" +
+                        "         \"biomCalidad\":1\n" +
+                        "      }\n" +
+                        "   ],\n" +
+                        "   \"datosGenerales\":{\n" +
+                        "      \"rolDatos\":\"01\",\n" +
+                        "      \"curp\":\"CALA890520XDFHPN09\",\n" +
+                        "      \"nss\":\"\",\n" +
+                        "      \"rfcTitular\":\"\",\n" +
+                        "      \"apellidoPaterno\":\"\",\n" +
+                        "      \"apellidoMaterno\":\"\",\n" +
+                        "      \"nombre\":\"\",\n" +
+                        "      \"sexo\":{\n" +
+                        "         \"descripcionGenero\":\"\"\n" +
+                        "      },\n" +
+                        "      \"fechaNacimiento\":\"\",\n" +
+                        "      \"entidadNacimiento\":{\n" +
+                        "         \"cveEntidadFederativa\":\"00\",\n" +
+                        "         \"descripcionCveFede\":\"\",\n" +
+                        "         \"cveCorta\":\"\"\n" +
+                        "      },\n" +
+                        "      \"pais\":{\n" +
+                        "         \"clavePais\":\"\",\n" +
+                        "         \"descripcionPais\":\"\"\n" +
+                        "      },\n" +
+                        "      \"nacionalidad\":\"\",\n" +
+                        "      \"claveGiro\":\"\",\n" +
+                        "      \"gradoEstudios\":\"\",\n" +
+                        "      \"ocupacion\":\"\",\n" +
+                        "      \"telefono\":[\n" +
+                        "         \n" +
+                        "      ],\n" +
+                        "      \"domicilio\":[\n" +
+                        "         \n" +
+                        "      ],\n" +
+                        "      \"beneficiarios\":{\n" +
+                        "         \"indicadorDesignacion\":0,\n" +
+                        "         \"indicadorReforma\":2,\n" +
+                        "         \"fechaModificacionBeneficiario\":\"\",\n" +
+                        "         \"listaBeneficiarios\":[\n" +
+                        "            \n" +
+                        "         ]\n" +
+                        "      }\n" +
+                        "   },\n" +
+                        "   \"correo\":{\n" +
+                        "      \"correoElectronico\":\"\",\n" +
+                        "      \"verificado\":\"\"\n" +
+                        "   }\n" +
+                        "}";
+                responseConsultaExpediente0103 response = convertirJsonAObjetoConsultaExpediente0103(json);
+                return response;
+
+            }
+            else{
+                responseConsultaExpediente0103 response= clientconsultaexpediente.consultaExpediente0103(request);
+                return response;
+            }
+        }
+    }
+
     public static responseCliente convertirJsonAObjeto(String json) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -1315,6 +1563,16 @@ public class serviceLoginPensionesImpl implements serviceLoginPensiones {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.readValue(json, responseConsultaInformacionCliente.class);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
+    public static responseConsultaExpediente0103 convertirJsonAObjetoConsultaExpediente0103(String json) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(json, responseConsultaExpediente0103.class);
         } catch (Exception e) {
             return null;
         }

@@ -2,6 +2,7 @@ package com.profuturo.mock.services.controladores;
 
 import com.profuturo.mock.services.dto.buscarcliente.rqtBuscarCliente;
 import com.profuturo.mock.services.dto.consultaInfoCliente.rqtrequestconsultarInformacionCliente;
+import com.profuturo.mock.services.dto.consultaexpediente.requestConsultaExpediente0103;
 import com.profuturo.mock.services.service.serviceLoginPensiones;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -168,5 +169,7 @@ public class BitacoraProcesoControlador {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al al validar autenticacion: " + e.getMessage());
 		}
 	}
+
+
 }
 
